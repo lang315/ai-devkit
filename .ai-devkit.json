@@ -3,16 +3,38 @@
   "environments": [
     "cursor",
     "claude",
-    "antigravity",
-    "codex"
+    "codex",
+    "antigravity"
   ],
-  "initializedPhases": [
+  "createdAt": "2025-12-28T13:35:45.251Z",
+  "updatedAt": "2026-02-23T12:41:04.369Z",
+  "phases": [
     "requirements",
     "design",
     "planning",
     "implementation",
     "testing"
   ],
-  "createdAt": "2025-12-28T13:35:45.251Z",
-  "updatedAt": "2026-01-28T20:00:27.088Z"
+  "skills": [
+    {
+      "registry": "codeaholicguy/ai-devkit",
+      "name": "memory"
+    },
+    {
+      "registry": "codeaholicguy/ai-devkit",
+      "name": "dev-lifecycle"
+    },
+    {
+      "registry": "codeaholicguy/ai-devkit",
+      "name": "debug"
+    },
+    {
+      "registry": "codeaholicguy/ai-devkit",
+      "name": "simplify-implementation"
+    },
+    {
+      "registry": "codeaholicguy/ai-devkit",
+      "name": "technical-writer"
+    }
+  ]
 }
