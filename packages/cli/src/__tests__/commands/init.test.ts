@@ -93,7 +93,7 @@ describe('init command template mode', () => {
 
     mockConfigManager.exists.mockResolvedValue(false);
     mockConfigManager.read.mockResolvedValue(null);
-    mockConfigManager.create.mockResolvedValue({ environments: [], initializedPhases: [] });
+    mockConfigManager.create.mockResolvedValue({ environments: [], phases: [] });
     mockConfigManager.setEnvironments.mockResolvedValue(undefined);
     mockConfigManager.addPhase.mockResolvedValue(undefined);
 
@@ -109,6 +109,10 @@ describe('init command template mode', () => {
 
     mockSkillManager.addSkill.mockResolvedValue(undefined);
     mockLoadInitTemplate.mockResolvedValue({});
+  });
+
+  afterEach(() => {
+    process.exitCode = undefined;
   });
 
   it('uses template values and installs multiple skills from same registry without prompts', async () => {
