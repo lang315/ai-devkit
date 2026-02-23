@@ -34,7 +34,20 @@ Load only the reference file for the current phase. For Phase 1, also load [refe
 
 ## Resuming Work
 
-If the user wants to continue work on an existing feature, run `npx ai-devkit@latest lint --feature <feature-name>` first, then run `scripts/check-status.sh <feature-name>` to infer the current phase from doc state and planning progress. Start from the suggested phase.
+If the user wants to continue work on an existing feature:
+
+1. Check branch and worktree state before phase work:
+   - Branch check: `git branch --show-current`
+   - Worktree check: `git worktree list`
+2. Determine target context for `<feature-name>`:
+   - Prefer worktree `.worktrees/feature-<name>` when it exists.
+   - Otherwise use branch `feature-<name>` in the current repository.
+3. Before switching, explicitly confirm target with the user (branch or worktree path).
+4. After user confirmation, switch to the confirmed context first:
+   - Worktree: run phase commands with `workdir=.worktrees/feature-<name>`.
+   - Branch: checkout `feature-<name>` in current repo.
+5. After switching, run `npx ai-devkit@latest lint --feature <feature-name>` in the active branch/worktree context.
+6. Then run `scripts/check-status.sh <feature-name>` to infer the current phase from doc state and planning progress, and start from the suggested phase.
 
 ## Backward Transitions
 
