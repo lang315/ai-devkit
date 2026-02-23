@@ -47,7 +47,10 @@ If the user wants to continue work on an existing feature:
    - Worktree: run phase commands with `workdir=.worktrees/feature-<name>`.
    - Branch: checkout `feature-<name>` in current repo.
 5. After switching, run `npx ai-devkit@latest lint --feature <feature-name>` in the active branch/worktree context.
-6. Then run `scripts/check-status.sh <feature-name>` to infer the current phase from doc state and planning progress, and start from the suggested phase.
+6. Then run the phase detector using the installed skill directory (same resolution rule as reference docs), not a workspace-relative `skills/...` path:
+   - Resolve `<skill-dir>` as the directory containing this `SKILL.md`.
+   - Run `<skill-dir>/scripts/check-status.sh <feature-name>` (or `cd <skill-dir> && scripts/check-status.sh <feature-name>`).
+   Use the suggested phase from this script based on doc state and planning progress.
 
 ## Backward Transitions
 
