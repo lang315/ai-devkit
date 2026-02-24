@@ -83,4 +83,4 @@ writable_roots = ["~/.ai-devkit", "~/.npm"]
 1. Save `~/.codex/config.toml`.
 2. Restart your Codex session so sandbox settings are reloaded.
 
-If it still fails, verify you have only one `[sandbox_workspace_write]` block and confirm `writable_roots` includes all three paths.
+If it still fails, verify you have only one `[sandbox_workspace_write]` block and confirm `writable_roots` includes all paths.
